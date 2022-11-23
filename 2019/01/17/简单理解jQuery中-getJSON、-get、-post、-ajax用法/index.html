@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>简单理解jQuery中$.getJSON、$.get、$.post、$.ajax用法 | D 空间</title><meta name="author" content="Mr.D"><meta name="copyright" content="Mr.D"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="在WEB开发中异步请求方式普遍使用，ajax技术减少程序员的工作量，也提升用户交互体验。AJAX的四种异步请求方式都能实现基本需求。 1.$.getJSON$.getJSON()是专门为ajax获取json数据而设置的，并且支持跨域调用，其语法的格式为：  12345$.getJSON(   url,                 &#x2F;&#x2F;请求URL   [data],           &#x2F;&#x2F;传参">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单理解jQuery中$.getJSON、$.get、$.post、$.ajax用法">
+<meta property="og:url" content="http://example.com/2019/01/17/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3jQuery%E4%B8%AD-getJSON%E3%80%81-get%E3%80%81-post%E3%80%81-ajax%E7%94%A8%E6%B3%95/index.html">
+<meta property="og:site_name" content="D 空间">
+<meta property="og:description" content="在WEB开发中异步请求方式普遍使用，ajax技术减少程序员的工作量，也提升用户交互体验。AJAX的四种异步请求方式都能实现基本需求。 1.$.getJSON$.getJSON()是专门为ajax获取json数据而设置的，并且支持跨域调用，其语法的格式为：  12345$.getJSON(   url,                 &#x2F;&#x2F;请求URL   [data],           &#x2F;&#x2F;传参">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/touxiang1.jpeg">
+<meta property="article:published_time" content="2019-01-17T02:04:41.000Z">
+<meta property="article:modified_time" content="2022-11-22T08:51:33.277Z">
+<meta property="article:author" content="Mr.D">
+<meta property="article:tag" content="JS">
+<meta property="article:tag" content="理论知识">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/touxiang1.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2019/01/17/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3jQuery%E4%B8%AD-getJSON%E3%80%81-get%E3%80%81-post%E3%80%81-ajax%E7%94%A8%E6%B3%95/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '简单理解jQuery中$.getJSON、$.get、$.post、$.ajax用法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-11-22 16:51:33'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/myStyle.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/touxiang1.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/bizhi1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">D 空间</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">简单理解jQuery中$.getJSON、$.get、$.post、$.ajax用法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-01-17T02:04:41.000Z" title="发表于 2019-01-17 10:04:41">2019-01-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-22T08:51:33.277Z" title="更新于 2022-11-22 16:51:33">2022-11-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="简单理解jQuery中$.getJSON、$.get、$.post、$.ajax用法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="在WEB开发中异步请求方式普遍使用，ajax技术减少程序员的工作量，也提升用户交互体验。AJAX的四种异步请求方式都能实现基本需求。"><a href="#在WEB开发中异步请求方式普遍使用，ajax技术减少程序员的工作量，也提升用户交互体验。AJAX的四种异步请求方式都能实现基本需求。" class="headerlink" title="在WEB开发中异步请求方式普遍使用，ajax技术减少程序员的工作量，也提升用户交互体验。AJAX的四种异步请求方式都能实现基本需求。"></a>在WEB开发中异步请求方式普遍使用，ajax技术减少程序员的工作量，也提升用户交互体验。AJAX的四种异步请求方式都能实现基本需求。</h2><hr>
+<h2 id="1-getJSON"><a href="#1-getJSON" class="headerlink" title="1.$.getJSON"></a>1.$.getJSON</h2><pre><code>$.getJSON()是专门为ajax获取json数据而设置的，并且支持跨域调用，其语法的格式为：
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.getJSON(</span><br><span class="line">   url,                 //请求URL</span><br><span class="line">   [data],           //传参，可选参数</span><br><span class="line">   [callback]       //回调函数，可选参数</span><br><span class="line">);   </span><br></pre></td></tr></table></figure>
+<pre><code>url：string类型， 发送请求地址  
+data ：可选参数， 待发送 Key/value 参数 ，同get，post类型的data
+callback ：可选参数，载入成功时回调函数，同get，post类型的callback
+</code></pre>
+<p>　  JSON是一种理想的数据传输格式，它能够很好的融合与JavaScript或其他宿主语言，并且可以被JS直接使用。使用JSON相比传统的通过 GET、POST直接发送“裸体”数据，在结构上更为合理，也更为安全。至于jQuery的getJSON()函数，只是设置了JSON参数的 ajax()函数的一个简化版本。这个函数也是可以跨域使用的，相比get()、post()有一定优势。另外这个函数可以通过把请求url写 成”myurl?callback&#x3D;X”这种格式，让程序执行回调函数X。<br>　　特别注意：$.getJSON是以GET方式提交数据，所以不能提交过大的数据量，可选$.post。<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//——项目中的实际案例</span><br><span class="line">function changeAnswerShow(id)&#123;</span><br><span class="line">  $.getJSON(</span><br><span class="line">          &quot;/legalconsult/admin/changeshowanswer&quot;,&#123;id:id&#125;,　　　　//URL和参数</span><br><span class="line">          function(data)&#123;</span><br><span class="line">           if(data.error==0)&#123;　　　　　　　　　　　　　　　　　　　　//回调函数，与后台交互</span><br><span class="line">              showSuccessMessage(&quot;操作成功,正在刷新。。。。&quot;);</span><br><span class="line">              setTimeout(&quot;window.location.reload()&quot;,2200);</span><br><span class="line">              var i=$(&quot;td.show&quot;+id+&quot; a i&quot; );</span><br><span class="line">             if(i.hasClass(&quot;splashy-gem_okay&quot;))&#123;</span><br><span class="line">                 i.removeClass(&quot;splashy-gem_okay&quot;).addClass(&quot;splashy-gem_remove&quot;);</span><br><span class="line">             &#125;else&#123;</span><br><span class="line">                i.removeClass(&quot;splashy-gem_remove&quot;).addClass(&quot;splashy-gem_okay&quot;);</span><br><span class="line">             &#125;</span><br><span class="line">             return true;</span><br><span class="line">          &#125;else&#123;</span><br><span class="line">             showErrorMessage(data.error);</span><br><span class="line">             return false;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-get"><a href="#2-get" class="headerlink" title="2.$.get"></a>2.$.get</h2><pre><code>    $.get是以GET方式实现AJAX请求，在提交短数据时可用。但基本不常用，因为$.getJSON完全满足功能需要，
+正如上所说，结构合理、更加安全。即便是为了提交长数据，也不会选用$.get,而是$.post。
+</code></pre>
+<h2 id="3-post"><a href="#3-post" class="headerlink" title="3.$.post"></a>3.$.post</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$.post(</span><br><span class="line">    url,</span><br><span class="line">    [data],</span><br><span class="line">    [callback],</span><br><span class="line">    [type]</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<pre><code>    url：string类型，ajax请求的地址。
+    data：可选参数，object类型，发送至服务器的key/value数据会作为QueryString附加到请求URL中。
+    callback：可选参数，function类型，当ajax返回成功时自动调用该函数。
+    type：type为请求的数据类型，可以是html,xml,json等类型，如果我们设置这个参数为：json，那么返回的
+格式则是json格式的，如果没有设置，就和$.get()返回的格式一样，都是字符串的。
+    这个方法和$.get()用法差不多，唯独多了一个type参数，那么这里就只介绍type参数吧，其他的参考上面
+$.get()的。
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> //实际项目案例</span><br><span class="line"> function changeMarkShow(id)&#123;</span><br><span class="line">      $.post(</span><br><span class="line">              &quot;/legalconsult/admin/markquestion&quot;,&#123;id:id&#125;,</span><br><span class="line">              function(data)&#123;</span><br><span class="line">                  if(data.error==0)&#123;</span><br><span class="line">                      showSuccessMessage(&quot;操作成功,正在刷新。。。。&quot;);</span><br><span class="line">                      setTimeout(&quot;window.location.reload()&quot;,2200);</span><br><span class="line">                      var i=$(&quot;td.markshow&quot;+id+&quot; a i&quot; );</span><br><span class="line">                     if(i.hasClass(&quot;splashy-star_full&quot;))&#123;</span><br><span class="line">                         i.removeClass(&quot;splashy-star_full&quot;).addClass(&quot;splashy-gem_empty&quot;);</span><br><span class="line">                     &#125;else&#123;</span><br><span class="line">                         i.removeClass(&quot;splashy-gem_empty&quot;).addClass(&quot;splashy-gem_full&quot;);</span><br><span class="line">                     &#125;</span><br><span class="line">                     return true;</span><br><span class="line">                     &#125;else&#123;</span><br><span class="line">                         showErrorMessage(data.error);</span><br><span class="line">                         return false;</span><br><span class="line">                     &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">            &quot;json&quot;                                             //声明数据格式</span><br><span class="line">             );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-ajax"><a href="#4-ajax" class="headerlink" title="4.$.ajax"></a>4.$.ajax</h2><pre><code>$.ajax是一种常见的普通封装异步方式。
+</code></pre>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JS/">JS</a><a class="post-meta__tags" href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">理论知识</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/01/21/IE%E6%B5%8F%E8%A7%88%E5%99%A8html%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7%E8%AE%BE%E7%BD%AE/"><img class="prev-cover" src="/img/bizhi1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">IE浏览器html的兼容性设置</div></div></a></div><div class="next-post pull-right"><a href="/2019/01/17/%E8%A7%A3%E5%86%B3easyui-combo%E5%8F%AA%E6%9C%89%E7%82%B9%E5%87%BB%E7%AE%AD%E5%A4%B4%E6%89%8D%E8%83%BD%E5%87%BA%E7%8E%B0%E4%B8%8B%E6%8B%89%E6%A1%86%E7%9A%84%E9%97%AE%E9%A2%98/"><img class="next-cover" src="/img/bizhi1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">解决easyui combo只有点击箭头才能出现下拉框的问题</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2018/10/31/iframe%E5%B5%8C%E5%A5%97%E6%97%B6%E7%88%B6%E5%AD%90%E9%A1%B5%E9%9D%A2%E4%BA%92%E7%9B%B8%E8%B0%83%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/" title="iframe嵌套时父子页面互相调用的问题"><img class="cover" src="/img/bizhi1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-10-31</div><div class="title">iframe嵌套时父子页面互相调用的问题</div></div></a></div><div><a href="/2019/01/21/IE%E6%B5%8F%E8%A7%88%E5%99%A8html%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7%E8%AE%BE%E7%BD%AE/" title="IE浏览器html的兼容性设置"><img class="cover" src="/img/bizhi1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-01-21</div><div class="title">IE浏览器html的兼容性设置</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/touxiang1.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Mr.D</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8WEB%E5%BC%80%E5%8F%91%E4%B8%AD%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%E6%99%AE%E9%81%8D%E4%BD%BF%E7%94%A8%EF%BC%8Cajax%E6%8A%80%E6%9C%AF%E5%87%8F%E5%B0%91%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%B7%A5%E4%BD%9C%E9%87%8F%EF%BC%8C%E4%B9%9F%E6%8F%90%E5%8D%87%E7%94%A8%E6%88%B7%E4%BA%A4%E4%BA%92%E4%BD%93%E9%AA%8C%E3%80%82AJAX%E7%9A%84%E5%9B%9B%E7%A7%8D%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%E9%83%BD%E8%83%BD%E5%AE%9E%E7%8E%B0%E5%9F%BA%E6%9C%AC%E9%9C%80%E6%B1%82%E3%80%82"><span class="toc-number">1.</span> <span class="toc-text">在WEB开发中异步请求方式普遍使用，ajax技术减少程序员的工作量，也提升用户交互体验。AJAX的四种异步请求方式都能实现基本需求。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-getJSON"><span class="toc-number">2.</span> <span class="toc-text">1.$.getJSON</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-get"><span class="toc-number">3.</span> <span class="toc-text">2.$.get</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-post"><span class="toc-number">4.</span> <span class="toc-text">3.$.post</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-ajax"><span class="toc-number">5.</span> <span class="toc-text">4.$.ajax</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/11/23/%E8%A7%A3%E5%86%B3idea-spring-boot-%E4%BF%AE%E6%94%B9html%E4%B8%8D%E9%87%8D%E5%90%AF%E6%97%A0%E6%B3%95%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/" title="解决idea spring boot 修改html不重启无法生效的问题">解决idea spring boot 修改html不重启无法生效的问题</a><time datetime="2022-11-23T01:33:48.000Z" title="发表于 2022-11-23 09:33:48">2022-11-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/11/22/web%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E6%8F%90%E7%A4%BAclass-path-resource-does-not-exist%EF%BC%88eclipse%E6%9E%84%E5%BB%BAclasses%EF%BC%89/" title="web项目启动提示class path resource does not exist（eclipse构建classes）">web项目启动提示class path resource does not exist（eclipse构建classes）</a><time datetime="2022-11-22T09:00:12.000Z" title="发表于 2022-11-22 17:00:12">2022-11-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/11/22/%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7%E7%B1%BB/" title="二维码生成工具类">二维码生成工具类</a><time datetime="2022-11-22T05:52:32.000Z" title="发表于 2022-11-22 13:52:32">2022-11-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/11/21/hello-world/" title="Hello World">Hello World</a><time datetime="2022-11-21T08:56:17.916Z" title="发表于 2022-11-21 16:56:17">2022-11-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/19/java%E7%94%9F%E6%88%90tree%E7%BB%93%E6%9E%84%E6%95%B0%E6%8D%AE%E5%B7%A5%E5%85%B7%E7%B1%BB/" title="java生成tree结构数据工具类">java生成tree结构数据工具类</a><time datetime="2021-05-19T06:44:49.000Z" title="发表于 2021-05-19 14:44:49">2021-05-19</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/bizhi1.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Mr.D</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script src="/js/jquery.js"></script><script src="/js/foot.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
