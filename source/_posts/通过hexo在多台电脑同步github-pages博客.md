@@ -36,7 +36,7 @@ git push
 	+ ### main分支和hexo分支各自保存着一个版本，master分支用于保存博客静态资源，提供博客页面供人访问；hexo分支用于备份博客部署文件，供自己维护更新，两者在一个GitHub仓库内互不冲突。
 + ## 在新电脑下载资源
 	+ ### 将新电脑的生成的ssh key添加到GitHub账户上
-	+ ### 在新电脑上克隆dong235523.github.io仓库的xxx分支到本地，此时本地git仓库处于hexo分支
+	+ ### 在新电脑上克隆dong235523.github.io仓库的hexo分支到本地，此时本地git仓库处于hexo分支
 	+ ### 切换到dong235523.github.io目录，执行npm install(由于仓库有一个.gitignore文件，里面默认是忽略掉 node_modules文件夹的，也就是说仓库的hexo分支并没有存储该目录[也不需要]，所以需要install下)
 	{% asset_img 4.jpg %}
 + ## 可以在新电脑写博客了
@@ -46,7 +46,7 @@ git add .
 git commit -m 'back up hexo files'（引号内容可改）
 git push
 ```
-	+ ### 保证xxx分支版本最新
+	+ ### 保证hexo分支版本最新
 	+ ### 执行指令
 	```code
 	hexo g
