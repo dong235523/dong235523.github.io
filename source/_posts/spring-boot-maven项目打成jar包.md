@@ -2,6 +2,7 @@
 title: spring boot maven项目打成jar包
 date: 2022-11-18 17:31:23 
 tags: 
+	- 项目部署
 categories: 运维
 cover: false
 ---
