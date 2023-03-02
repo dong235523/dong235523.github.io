@@ -107,8 +107,3 @@ deploy:
   repository: https://github.com/dong235523/dong235523.github.io.git
   branch: main
 
-search:
-  path: search.xml
-  field: post
-  format: html
-  limit: 10000
