@@ -2,8 +2,8 @@
 title: 通过hexo在多台电脑同步github pages博客
 date: 2023-01-10 17:03:59
 tags:
-  - git
-categories: 前端技术
+  - hexo
+categories: 博客
 cover: false
 ---
 + ## 确保自己已经使用hexo在github搭建好了自己的个人博客。
