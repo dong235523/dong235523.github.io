@@ -3,7 +3,6 @@ title: 若依框架整合JWT
 date: 2023-01-12 17:33:27
 tags: 
    - 若依框架
-   - JWT token
 categories: 后端技术
 cover: false
 ---
