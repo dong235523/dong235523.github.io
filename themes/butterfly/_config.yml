@@ -10,8 +10,8 @@ menu:
   # List||fas fa-list:
   #   Music: /music/ || fas fa-music
   #   Movie: /movies/ || fas fa-video
-  链接: /link/ || fas fa-link
-  # About: /about/ || fas fa-heart
+  #   链接: /link/ || fas fa-link
+  #   About: /about/ || fas fa-heart
 
 # Code Blocks (代碼相關)
 # --------------------------------------
@@ -90,7 +90,7 @@ disable_top_img: false
 index_img: /img/bizhi1.jpg
 
 # If the banner of page not setting, it will show the top_img
-default_top_img: /img/bizhi1.jpg
+default_top_img: /img/bizhi4.jpg
 
 # The banner image of archive page
 archive_img: /img/bizhi2.jpg
