@@ -17,7 +17,7 @@ docker的一些常用命令：
 
 ```
 启动docker
-service docker startup
+sudo systemctl start docker
 ```
 
 ```
