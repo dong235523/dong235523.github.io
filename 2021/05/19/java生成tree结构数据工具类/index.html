@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>java生成tree结构数据工具类 | D</title><meta name="author" content="Mr.D"><meta name="copyright" content="Mr.D"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566public class ComboTree implements Serializable&amp;#123;    private String id;&#x2F;&#x2F;：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java生成tree结构数据工具类">
+<meta property="og:url" content="http://example.com/2021/05/19/java%E7%94%9F%E6%88%90tree%E7%BB%93%E6%9E%84%E6%95%B0%E6%8D%AE%E5%B7%A5%E5%85%B7%E7%B1%BB/index.html">
+<meta property="og:site_name" content="D">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566public class ComboTree implements Serializable&amp;#123;    private String id;&#x2F;&#x2F;：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/touxiang1.jpeg">
+<meta property="article:published_time" content="2021-05-19T06:44:49.000Z">
+<meta property="article:modified_time" content="2024-03-05T06:12:02.693Z">
+<meta property="article:author" content="Mr.D">
+<meta property="article:tag" content="工具类">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/touxiang1.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/05/19/java%E7%94%9F%E6%88%90tree%E7%BB%93%E6%9E%84%E6%95%B0%E6%8D%AE%E5%B7%A5%E5%85%B7%E7%B1%BB/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'java生成tree结构数据工具类',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-03-05 14:12:02'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/myStyle.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/touxiang1.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">47</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/bizhi4.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">D</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">java生成tree结构数据工具类</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-05-19T06:44:49.000Z" title="发表于 2021-05-19 14:44:49">2021-05-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-05T06:12:02.693Z" title="更新于 2024-03-05 14:12:02">2024-03-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/">后端技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="java生成tree结构数据工具类"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">public class ComboTree implements Serializable&#123;</span><br><span class="line">    private String id;//：节点ID，对加载远程数据很重要。</span><br><span class="line">    private String text;//：显示节点文本。</span><br><span class="line">    private String parentid;//：节点ID，对加载远程数据很重要。</span><br><span class="line">    private String state;//：节点状态，’open’ 或 ‘closed’，默认：’open’。如果为’closed’的时候，将不自动展开该节点。</span><br><span class="line">    private boolean checked;//：表示该节点是否被选中。</span><br><span class="line">    private String attributes;//: 被添加到节点的自定义属性。</span><br><span class="line">    private List&lt;ComboTree&gt; children;//: 一个节点数组声明了若干节点。</span><br><span class="line"> </span><br><span class="line">    public String getId() &#123;</span><br><span class="line">        return id;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setId(String id) &#123;</span><br><span class="line">        this.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public String getParentid() &#123;</span><br><span class="line">        return parentid;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setParentid(String parentid) &#123;</span><br><span class="line">        this.parentid = parentid;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public String getText() &#123;</span><br><span class="line">        return text;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setText(String text) &#123;</span><br><span class="line">        this.text = text;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public String getState() &#123;</span><br><span class="line">        return state;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setState(String state) &#123;</span><br><span class="line">        this.state = state;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public boolean isChecked() &#123;</span><br><span class="line">        return checked;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setChecked(boolean checked) &#123;</span><br><span class="line">        this.checked = checked;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public String getAttributes() &#123;</span><br><span class="line">        return attributes;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setAttributes(String attributes) &#123;</span><br><span class="line">        this.attributes = attributes;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public List&lt;ComboTree&gt; getChildren() &#123;</span><br><span class="line">        return children;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setChildren(List&lt;ComboTree&gt; children) &#123;</span><br><span class="line">        this.children = children;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">public class TreeUtils &#123;</span><br><span class="line"> </span><br><span class="line">    private List&lt;ComboTree&gt; menuList = new ArrayList&lt;ComboTree&gt;();</span><br><span class="line"> </span><br><span class="line">    public TreeUtils(List&lt;ComboTree&gt; menuList) &#123;</span><br><span class="line">        this.menuList = menuList;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    //建立树形结构</span><br><span class="line">    public List&lt;ComboTree&gt; builTree() &#123;</span><br><span class="line">        List&lt;ComboTree&gt; treeMenus = new ArrayList&lt;ComboTree&gt;();</span><br><span class="line">        for (ComboTree menuNode : getRootNode()) &#123;</span><br><span class="line">            menuNode = buildChilTree(menuNode);</span><br><span class="line">            treeMenus.add(menuNode);</span><br><span class="line">        &#125;</span><br><span class="line">        return treeMenus;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    //递归，建立子树形结构</span><br><span class="line">    private ComboTree buildChilTree(ComboTree pNode) &#123;</span><br><span class="line">        List&lt;ComboTree&gt; chilMenus = new ArrayList&lt;ComboTree&gt;();</span><br><span class="line">        for (ComboTree menuNode : menuList) &#123;</span><br><span class="line">            if (menuNode.getParentid().equals(pNode.getId())) &#123;</span><br><span class="line">                chilMenus.add(buildChilTree(menuNode));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        pNode.setChildren(chilMenus);</span><br><span class="line">        return pNode;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    //获取根节点</span><br><span class="line">    private List&lt;ComboTree&gt; getRootNode() &#123;</span><br><span class="line">        List&lt;ComboTree&gt; rootMenuLists = new ArrayList&lt;ComboTree&gt;();</span><br><span class="line">        for (ComboTree menuNode : menuList) &#123;</span><br><span class="line">        	//800000000000:顶层父节点，可以改成动态传入</span><br><span class="line">            if (menuNode.getParentid().equals(&quot;800000000000&quot;)) &#123;</span><br><span class="line">                rootMenuLists.add(menuNode);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return rootMenuLists;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/">工具类</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/10/26/%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7%E7%B1%BB/"><img class="prev-cover" src="/img/bizhi4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">二维码生成工具类</div></div></a></div><div class="next-post pull-right"><a href="/2019/11/22/web%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E6%8F%90%E7%A4%BAclass-path-resource-does-not-exist%EF%BC%88eclipse%E6%9E%84%E5%BB%BAclasses%EF%BC%89/"><img class="next-cover" src="/img/bizhi4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">web项目启动提示class path resource does not exist（eclipse构建classes）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/04/20/JAVA%E5%AE%9E%E7%8E%B0%E5%9D%90%E6%A0%87%E5%8C%BA%E5%9F%9F%E7%A2%B0%E6%92%9E/" title="JAVA实现坐标区域碰撞"><img class="cover" src="/img/bizhi4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-20</div><div class="title">JAVA实现坐标区域碰撞</div></div></a></div><div><a href="/2018/07/23/%E4%B8%80%E4%B8%AA%E9%9D%9E%E5%B8%B8%E4%B8%A5%E6%A0%BC%E7%9A%84java%E8%BA%AB%E4%BB%BD%E8%AF%81%E6%A0%A1%E9%AA%8C%E5%B7%A5%E5%85%B7/" title="一个非常严格的java身份证校验工具"><img class="cover" src="/img/bizhi4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-07-23</div><div class="title">一个非常严格的java身份证校验工具</div></div></a></div><div><a href="/2021/10/26/%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7%E7%B1%BB/" title="二维码生成工具类"><img class="cover" src="/img/bizhi4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-26</div><div class="title">二维码生成工具类</div></div></a></div><div><a href="/2023/03/15/%E7%94%A8java%E5%86%99%E4%B8%80%E4%B8%AA%E5%B0%8F%E8%AF%B4%E7%88%AC%E8%99%AB/" title="用java写一个小说爬虫"><img class="cover" src="/img/bizhi4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-15</div><div class="title">用java写一个小说爬虫</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/touxiang1.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Mr.D</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">47</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/05/idea2021.3.1%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/" title="idea2021.3.1版破解教程">idea2021.3.1版破解教程</a><time datetime="2024-03-05T06:37:21.000Z" title="发表于 2024-03-05 14:37:21">2024-03-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/11/addClass-siblings-removeClass%E7%94%A8%E6%B3%95/" title="addClass+siblings+removeClass用法">addClass+siblings+removeClass用法</a><time datetime="2024-01-11T08:04:08.000Z" title="发表于 2024-01-11 16:04:08">2024-01-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/06/MySQL%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84%EF%BC%8C%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E4%B8%8B%E7%BA%A7%E6%95%B0%E6%8D%AEid/" title="MySQL树形结构，查询所有下级数据id">MySQL树形结构，查询所有下级数据id</a><time datetime="2023-12-06T06:44:01.000Z" title="发表于 2023-12-06 14:44:01">2023-12-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/28/IDEA2021-%E6%8A%A5Error-running-%E2%80%98Application%E2%80%98-Command-line-is-too-long%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="IDEA2021 报Error running ‘Application‘: Command line is too long解决方案">IDEA2021 报Error running ‘Application‘: Command line is too long解决方案</a><time datetime="2023-11-28T01:17:24.000Z" title="发表于 2023-11-28 09:17:24">2023-11-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/06/%E5%9F%BA%E4%BA%8E%E8%8B%A5%E4%BE%9D%E7%9A%84summernote%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E4%B8%8A%E4%BC%A0%E8%A7%86%E9%A2%91%E5%8A%9F%E8%83%BD/" title="基于若依的summernote富文本编辑器上传视频功能">基于若依的summernote富文本编辑器上传视频功能</a><time datetime="2023-11-06T05:19:24.000Z" title="发表于 2023-11-06 13:19:24">2023-11-06</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/bizhi4.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Mr.D</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '8BV4JMtjX3EOCXkSAQUXpXIh-gzGzoHsz',
+      appKey: 'CNjMlR2NLF59wVr53t200j4S',
+      avatar: 'whbDyJ7ZrOQnwkuWVYmnkzb9',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script src="/js/jquery.js"></script><script src="/js/foot.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
