@@ -1060,7 +1060,9 @@ Gson g = new GsonBuilder().serializeNulls().create();
 <li><h2 id="首先将电脑上的旧版本-IDEA-卸载干净，如果你的电脑是一台新电脑、没有安装过-IDEA-，那么你就可以跳过这一步。一定要按照下图所示勾选，确保完全卸载干净。"><a href="#首先将电脑上的旧版本-IDEA-卸载干净，如果你的电脑是一台新电脑、没有安装过-IDEA-，那么你就可以跳过这一步。一定要按照下图所示勾选，确保完全卸载干净。" class="headerlink" title="首先将电脑上的旧版本 IDEA 卸载干净，如果你的电脑是一台新电脑、没有安装过 IDEA ，那么你就可以跳过这一步。一定要按照下图所示勾选，确保完全卸载干净。"></a>首先将电脑上的旧版本 IDEA 卸载干净，如果你的电脑是一台新电脑、没有安装过 IDEA ，那么你就可以跳过这一步。一定要按照下图所示勾选，确保完全卸载干净。</h2><img src="/2024/03/05/idea2021.3.1%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/1.png" class="">
 </li>
 <li><h2 id="然后安装我们的idea2021-3-1版本，一路next就可以"><a href="#然后安装我们的idea2021-3-1版本，一路next就可以" class="headerlink" title="然后安装我们的idea2021.3.1版本，一路next就可以"></a>然后安装我们的idea2021.3.1版本，一路next就可以</h2></li>
-<li><h2 id="将ja-netfilter-all-rar补丁压缩到D盘（我是放在-D-盘下面），所以激活补丁路径为："><a href="#将ja-netfilter-all-rar补丁压缩到D盘（我是放在-D-盘下面），所以激活补丁路径为：" class="headerlink" title="将ja-netfilter-all.rar补丁压缩到D盘（我是放在 D 盘下面），所以激活补丁路径为："></a>将ja-netfilter-all.rar补丁压缩到D盘（我是放在 D 盘下面），所以激活补丁路径为：</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-javaagent:d:/ja-netfilter-all/ja-netfilter.jar</span><br></pre></td></tr></table></figure>
+<li><h2 id="下载ja-netfilter-all-rar补丁"><a href="#下载ja-netfilter-all-rar补丁" class="headerlink" title="下载ja-netfilter-all.rar补丁"></a>下载ja-netfilter-all.rar补丁</h2><p><a href="ja-netfilter-all.rar">点击下载</a></p>
+</li>
+<li><h2 id="将ja-netfilter-all-rar补丁解压缩到D盘（我是放在-D-盘下面），所以激活补丁路径为："><a href="#将ja-netfilter-all-rar补丁解压缩到D盘（我是放在-D-盘下面），所以激活补丁路径为：" class="headerlink" title="将ja-netfilter-all.rar补丁解压缩到D盘（我是放在 D 盘下面），所以激活补丁路径为："></a>将ja-netfilter-all.rar补丁解压缩到D盘（我是放在 D 盘下面），所以激活补丁路径为：</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-javaagent:d:/ja-netfilter-all/ja-netfilter.jar</span><br></pre></td></tr></table></figure>
 <img src="/2024/03/05/idea2021.3.1%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/2.png" class="">
 <p>注意，要ja-netfilter-all整个文件夹，光一个jar包是没用的</p>
 </li>
