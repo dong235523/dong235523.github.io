@@ -363,7 +363,7 @@
 <h3 id="修改站点配置文件"><a href="#修改站点配置文件" class="headerlink" title="修改站点配置文件"></a>修改站点配置文件</h3><p>修改根目录下的_config.yml（我的目录：D:\workspace\hexo_config.yml），在最底部添加如下配置</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
 
-<h3 id="修改主题配置文件"><a href="#修改主题配置文件" class="headerlink" title="修改主题配置文件"></a>修改主题配置文件</h3><p>修改主体下的themes\butterfly_config.yml配置文件（我的目录：D:\workspace\hexo\themes\butterfly_config.yml），搜索local_search，修改enable为true</p>
+<h3 id="修改主题配置文件"><a href="#修改主题配置文件" class="headerlink" title="修改主题配置文件"></a>修改主题配置文件</h3><p>修改主题下的themes\butterfly\ _config.yml配置文件（我的目录：D:\workspace\hexo\themes\butterfly\ _config.yml），搜索local_search，修改enable为true</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  # if auto, trigger search by changing input</span><br><span class="line">  # if manual, trigger search by pressing enter key or search button</span><br><span class="line">  trigger: auto</span><br><span class="line">  # show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br></pre></td></tr></table></figure>
 
 <h3 id="预览效果"><a href="#预览效果" class="headerlink" title="预览效果"></a>预览效果</h3><p>开启本地server</p>
