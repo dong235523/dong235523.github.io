@@ -1151,4 +1151,19 @@ Gson g = new GsonBuilder().serializeNulls().create();
         <tag>Oracle</tag>
       </tags>
   </entry>
+  <entry>
+    <title>linux批量启停jar包命令</title>
+    <url>/2024/05/06/linux%E6%89%B9%E9%87%8F%E5%90%AF%E5%81%9Cjar%E5%8C%85%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="批量后台启动jar包命令"><a href="#批量后台启动jar包命令" class="headerlink" title="批量后台启动jar包命令"></a>批量后台启动jar包命令</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 定义日志目录</span><br><span class="line">LOG_DIR=&quot;logs&quot;</span><br><span class="line">mkdir -p &quot;$LOG_DIR&quot;</span><br><span class="line"></span><br><span class="line"># 定义要执行的 JAR 包列表和延迟时间</span><br><span class="line">JAR_FILES=(</span><br><span class="line">    &quot;xxx1.jar&quot;</span><br><span class="line">    &quot;xxx2.jar&quot;</span><br><span class="line">    &quot;xxx3.jar&quot;</span><br><span class="line">    &quot;xxx4.jar&quot;</span><br><span class="line">    &quot;xxx5.jar&quot;</span><br><span class="line">)</span><br><span class="line">DELAY=100</span><br><span class="line"># 循环遍历执行每个 JAR 包</span><br><span class="line">for JAR_FILE in &quot;$&#123;JAR_FILES[@]&#125;&quot;; do</span><br><span class="line">    LOG_FILE=&quot;$LOG_DIR/$&#123;JAR_FILE%.jar&#125;.log&quot; # 构建日志文件名，例如 hkcloud-nacos.log</span><br><span class="line"></span><br><span class="line">    echo &quot;延迟 $DELAY 秒后开始执行 $JAR_FILE ...&quot;</span><br><span class="line">    sleep $DELAY</span><br><span class="line"></span><br><span class="line">    echo &quot;开始执行 $JAR_FILE ...&quot;</span><br><span class="line">    nohup java -jar &quot;$JAR_FILE&quot; &gt;&gt; &quot;$LOG_FILE&quot; 2&gt;&amp;1 &amp;</span><br><span class="line">    echo &quot;执行 $JAR_FILE 完成。日志文件位于 $LOG_FILE。&quot;</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">echo &quot;所有 JAR 包已在后台执行。&quot;</span><br></pre></td></tr></table></figure>
+<p>将上述代码放到一个新建的txt文件中，然后尾缀改成.sh文件即可</p>
+<h3 id="批量停止jar包命令"><a href="#批量停止jar包命令" class="headerlink" title="批量停止jar包命令"></a>批量停止jar包命令</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 定义要关闭的 JAR 包列表</span><br><span class="line">JAR_FILES=(</span><br><span class="line">    &quot;xxx1.jar&quot;</span><br><span class="line">    &quot;xxx2.jar&quot;</span><br><span class="line">    &quot;xxx3.jar&quot;</span><br><span class="line">    &quot;xxx4.jar&quot;</span><br><span class="line">    &quot;xxx5.jar&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 遍历每个 JAR 文件，尝试关闭相关联的进程</span><br><span class="line">for JAR_FILE in &quot;$&#123;JAR_FILES[@]&#125;&quot;; do</span><br><span class="line">    echo &quot;尝试关闭 $JAR_FILE ...&quot;</span><br><span class="line">    PIDS=$(ps aux | grep &quot;$JAR_FILE&quot; | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27;)</span><br><span class="line">    if [ -n &quot;$PIDS&quot; ]; then</span><br><span class="line">        kill -9 $PIDS</span><br><span class="line">        echo &quot;$JAR_FILE 进程已关闭。&quot;</span><br><span class="line">    else</span><br><span class="line">        echo &quot;$JAR_FILE 进程未找到。&quot;</span><br><span class="line">    fi</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">echo &quot;所有 JAR 包已关闭。&quot;</span><br></pre></td></tr></table></figure>
+<p>将上述代码放到一个新建的txt文件中，然后尾缀改成.sh文件即可</p>
+]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
 </search>
