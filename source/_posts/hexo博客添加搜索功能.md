@@ -23,7 +23,7 @@ search:
 ```
 
 ### 修改主题配置文件
-修改主体下的themes\butterfly\_config.yml配置文件（我的目录：D:\workspace\hexo\themes\butterfly\_config.yml），搜索local_search，修改enable为true
+修改主题下的themes\butterfly\ _config.yml配置文件（我的目录：D:\workspace\hexo\themes\butterfly\ _config.yml），搜索local_search，修改enable为true
 ```
 local_search:
   enable: true
