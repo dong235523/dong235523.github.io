@@ -1166,4 +1166,41 @@ Gson g = new GsonBuilder().serializeNulls().create();
         <tag>linux</tag>
       </tags>
   </entry>
+  <entry>
+    <title>mysql快捷生成数据库结构设计</title>
+    <url>/2024/05/18/mysql%E5%BF%AB%E6%8D%B7%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<p>公司项目需要写数据库设计文档，就是数据库字段信息写到word中，挨个字段的粘贴效率太低了<br>所以需要进行一些快捷操作<br>下边以mysql数据库，Navicat软件举例</p>
+<ul>
+<li><h3 id="在Navicat中整理表信息"><a href="#在Navicat中整理表信息" class="headerlink" title="在Navicat中整理表信息"></a>在Navicat中整理表信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select @rank:=@rank + 1 AS 序号,</span><br><span class="line">	b.COLUMN_KEY 主键,</span><br><span class="line">  b.COLUMN_NAME 名称,</span><br><span class="line">	b.column_type 字段类型,</span><br><span class="line">	b.IS_NULLABLE 是否可空,</span><br><span class="line">	&#x27;&#x27; 默认值,</span><br><span class="line">	b.column_comment 字段说明,</span><br><span class="line">	&#x27;&#x27; 备注</span><br><span class="line">from information_schema.COLUMNS b</span><br><span class="line">, (SELECT @rank:= 0) c</span><br><span class="line">where b.TABLE_SCHEMA = &#x27;hk_iot&#x27;</span><br><span class="line">and b.TABLE_NAME = &#x27;thing_model_argument_data&#x27;</span><br></pre></td></tr></table></figure>
+<p>查询结果：</p>
+<img src="/2024/05/18/mysql%E5%BF%AB%E6%8D%B7%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/1.png" class="">
+<p>注：TABLE_SCHEMA（数据库名）  TABLE_NAME（表名）</p>
+</li>
+<li><h3 id="将查询结果导出成excel"><a href="#将查询结果导出成excel" class="headerlink" title="将查询结果导出成excel"></a>将查询结果导出成excel</h3><img src="/2024/05/18/mysql%E5%BF%AB%E6%8D%B7%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/2.jpg" class="">
+<img src="/2024/05/18/mysql%E5%BF%AB%E6%8D%B7%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/3.jpg" class=""></li>
+</ul>
+<p>复制excel内容到目标word中</p>
+<img src="/2024/05/18/mysql%E5%BF%AB%E6%8D%B7%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/4.jpg" class="">
+
+<ul>
+<li><h3 id="格式化表格"><a href="#格式化表格" class="headerlink" title="格式化表格"></a>格式化表格</h3>粘过去之后是这样无样式的表格<img src="/2024/05/18/mysql%E5%BF%AB%E6%8D%B7%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/5.png" class="">
+选择边框和底纹<img src="/2024/05/18/mysql%E5%BF%AB%E6%8D%B7%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/6.jpg" class="">
+<img src="/2024/05/18/mysql%E5%BF%AB%E6%8D%B7%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/7.jpg" class="">
+这样效果就差不多了<img src="/2024/05/18/mysql%E5%BF%AB%E6%8D%B7%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/8.jpg" class="">
+然后从示例的表格中用格式刷刷点样式下来<img src="/2024/05/18/mysql%E5%BF%AB%E6%8D%B7%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/9.jpg" class=""></li>
+</ul>
+<p>最后在第一格上方插入一行，把表头复制进来</p>
+<img src="/2024/05/18/mysql%E5%BF%AB%E6%8D%B7%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/10.jpg" class="">
+<p>这样一个表就完事了</p>
+<img src="/2024/05/18/mysql%E5%BF%AB%E6%8D%B7%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/11.jpg" class="">
+
+<p>虽然这个流程也挺繁琐的，但是总比挨个字段复制要快，等以后有更快的方法在更新。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
 </search>
