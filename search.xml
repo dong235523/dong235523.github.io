@@ -1215,4 +1215,23 @@ Gson g = new GsonBuilder().serializeNulls().create();
         <tag>mysql</tag>
       </tags>
   </entry>
+  <entry>
+    <title>docker安装redis</title>
+    <url>/2024/05/18/docker%E5%AE%89%E8%A3%85redis/</url>
+    <content><![CDATA[<p>官方推荐安装方式：<br>1、执行命令，下载 redis 镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull redis:4.0.1 </span><br></pre></td></tr></table></figure>
+<p>如下所示：</p>
+<img src="/2024/05/18/docker%E5%AE%89%E8%A3%85redis/1.jpg" class="">
+<p>2、执行命令，创建并启动 redis 容器</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run --rm -d --name redis6379 -p 6379:6379 redis:4.0.1 --requirepass &quot;123456&quot;</span><br></pre></td></tr></table></figure>
+
+<p>测试一下，已经安装成功！</p>
+]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
 </search>
