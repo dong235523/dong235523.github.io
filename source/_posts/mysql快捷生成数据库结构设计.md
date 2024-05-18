@@ -16,10 +16,11 @@ cover: false
 ```
 select @rank:=@rank + 1 AS 序号,
 	b.COLUMN_KEY 主键,
-  b.COLUMN_NAME 名称,
+    b.COLUMN_NAME 名称,
 	b.column_type 字段类型,
-	b.IS_NULLABLE 是否可空,
-	'' 默认值,
+	case IS_NULLABLE when 'NO' then ''
+	else '√' end  是否可空,
+	b.COLUMN_DEFAULT 默认值,
 	b.column_comment 字段说明,
 	'' 备注
 from information_schema.COLUMNS b
