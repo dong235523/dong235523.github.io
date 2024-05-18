@@ -317,8 +317,20 @@
   <entry>
     <title>docker部署mysql</title>
     <url>/2023/06/02/docker%E9%83%A8%E7%BD%B2mysql/</url>
-    <content><![CDATA[<p>&#x2F;&#x2F;docker一键部署mysql<br>docker run -p 3306:3306 –name mysql -e MYSQL_ROOT_PASSWORD&#x3D;123456 -d mysql:8.0.28<br>&#x2F;&#x2F;启动docker<br>sudo systemctl start docker</p>
-<p>&#x2F;&#x2F;docker安装mysql后更改密码连接方式<br>1.进入容器<br>docker exec -it mysql &#x2F;bin&#x2F;bash<br>2. 登录mysql<br>mysql -u root -p<br>3. 输入密码<br>输入mysql安装时设置的密码（123456）<br>4. 切换数据库<br>use mysql;<br>4. 修改密码方式<br>ALTER USER ‘root‘@’%’ IDENTIFIED WITH mysql_native_password BY ‘123456’;<br>5. 刷新生效<br>FLUSH PRIVILEGES;<br>5. 退出mysql<br>exiit;<br>5.退出容器<br>exit;<br>三. 关机后再次开机启动mysql容器<br>docker start mysql</p>
+    <content><![CDATA[<p>首先拉取mysql镜像<br>docker pull mysql:8.0.28</p>
+<p>&#x2F;&#x2F;一键部署mysql<br>docker run -p 3306:3306 –name mysql -e MYSQL_ROOT_PASSWORD&#x3D;123456 -d mysql:8.0.28<br>&#x2F;&#x2F;启动docker<br>sudo systemctl start docker</p>
+<p>&#x2F;&#x2F;docker安装mysql后更改密码连接方式<br>1.进入容器<br>docker exec -it mysql &#x2F;bin&#x2F;bash</p>
+<ol start="2">
+<li>登录mysql<br>mysql -u root -p</li>
+</ol>
+<p>ps:我新装的docker这个命令不好使，使用的另一个命令<br>首先执行 docker ps -a 查看mysql的容器id<br>然后执行 docker exec -it xxxxxxx mysql -u root -p<br>等同于执行了1、2两步</p>
+<ol start="3">
+<li>输入密码<br>输入mysql安装时设置的密码（123456）</li>
+<li>切换数据库<br>use mysql;</li>
+<li>修改密码方式<br>ALTER USER ‘root‘@’%’ IDENTIFIED WITH mysql_native_password BY ‘123456’;</li>
+<li>刷新生效<br>FLUSH PRIVILEGES;</li>
+<li>退出mysql<br>exiit;<br>5.退出容器<br>exit;<br>三. 关机后再次开机启动mysql容器<br>docker start mysql</li>
+</ol>
 ]]></content>
       <categories>
         <category>运维</category>
